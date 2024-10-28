@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Honour Field children School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<style>
+	* {
+    margin: 0;
+    padding: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+nav{
+    position: fixed;
+    top: 0;
+    width: 90%; /* Ensure it stretches across the entire width */
+    z-index: 1000; 
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(4, 9, 30, 0.9);
+}
+
+nav img{
+    width: 150px;
+}
+
+.nav{
+    flex: 1;
+    text-align: right;
+}
+
+.links ul li{
+    list-style: none;
+    display: inline-block ;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.links ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: black;
+    display: block;
+    margin: auto;
+    transition: width 0.5s ease-in-out ;
+}
+
+.links ul li:hover::after{
+    width: 100%;
+    background: white; /* More noticeable hover effect */
+    transition: all 0.4s ease-in-out;
+}
+nav .fa{
+     display: none;
+
+}
+
+nav .fa-times {
+    display: none;
+    color: black;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@media(max-width: 700px) {
+    .text-box h1{
+        font-size: 20px;
+    }
+    links ul li{
+        display: block;
+    }
+    .links{
+        position: absolute;
+        background: darkred;
+        color: black;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+    } 
+nav .fa{
+     display: block;
+     color: #fff;
+     margin: 10px;
+     font-size: 22px;
+     cursor: pointer;
+    }
+    .links ul{
+       padding: 30px;
+    }
+} 
+
+/*container{
+    margin: auto;
+}
+*/
+.container .content{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 200px;
+}
+.container .content .left-side{
+    width: 25%;
+    height: 100%;
+    position: relative;
+}
+.content .left-side::before{
+    content: '';
+    position: absolute;
+    height: 70%;
+    width: 2px;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #afafb6;
+}
+
+.content .left-side .details{
+    margin: 14px;
+    text-align: 90;
+}
+
+.content .left-side .details i{
+    font-size: 30px;
+    color: blue;
+    margin-bottom: 10px;
+}
+.content .left-side .details .topic{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.content .left-side .details .text-one,
+.content .left-side .details .text-two{
+    font-size: 14px;
+    color: #afafb6;
+}
+
+.container .content .right-side{
+    width: 75%;
+    margin-left: 75px;
+}
+.content .right-side .topic-text{
+    font-size: 23px;
+    width: 100%;
+    color: #3e2093;
+}
+.right-side  .input-box {
+    height: 50px;
+    width: 100%;
+    margin: 12px 0;
+}
+.right-side .input-box input,
+.right-side .input-box textarea{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    background: #F0F1F8;
+    border-radius: 6px;
+    padding: 0 15px;
+    resize: none;
+}
+
+.right-side  .message-box{
+    min-height: 110px;
+}  
+.right-side .button input[type="submit"]{
+    color: #fff;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: #3e2093;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button input[type="submit"]:hover{
+    background: #5029bc;
+}
+
+@media (max-width: 950px){
+    .container{
+    width: 90%;
+    padding: 30px 25px 40px 35px;
+    margin-top: 50px;
+    margin-left: 40px;
+   }
+}
+
+@media (max-width: 520px){
+  .container{
+  margin: 40px 20px;
+  height: 100%;
+   }
+  .container .content{
+  flex-direction: column-reverse;
+  }
+.container .content .left-side{
+  width: 100%;
+  flex-direction: row;
+  margin-top: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  }
+  .container .content .left-side::before{
+    display: none;
+  }
+
+  .container .content .right-side{
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.footer-logo{ 
+    margin: auto 20px;
+    top: 500px;
+    bottom: 40px;
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-logo a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid navy; 
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+    z-index: 1;
+    position: relative; 
+    overflow: hidden;
+}
+
+.footer-logo a:hover{
+    color: black;
+}
+
+.footer-logo a::before{
+    content: '';
+    position: absolute; 
+    top: 0;
+    left: 100%;
+    width: 0;
+    height: 100%;
+    background: darkred;
+    z-index: -1;
+    transition: width 0.5s ease;
+
+}
+
+/*.footer-logo a:hover::before{
+    left: 0; 
+    width: 100%;
+}*/
+
+@media (max-width: 700px) {
+    .course-col {
+        width: 100%; /* Make the columns stack */
+        margin-bottom: 20px;
+    }
+
+    .footer-logo {
+        width: 100%; /* Ensure proper spacing for icons */
+        justify-content: space-around;
+    }
+}*/
+
+.foot {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.foot h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.fcons .fa{
+    color: #f44336;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+.fa-heart-o{
+    color: #f44336;
+}
+</style>
+<body>
+
+	<div class="header">
+            <nav>
+                <a href="index.html"><img src="LogoTransparent.png" class="logo"></a>
+                <div class="links" id="links">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <div class="container" id="Contact">
+    <div class="content">
+        <div class="left-side">
+            <div class="address details">
+                <i class="fa fa-location-dot"></i>
+                <div class="topic">Address</div>
+                <div class="text-one">Surkhet</div>
+                <div class="text-two">11, Omoniyi Street</div>
+            </div>
+            <div class="phone details">
+                <i class="fa fa-phone"></i>
+                <div class="topic">Phone</div>
+                <div class="text-one">+234 (0)708 928 4534</div>
+                <div class="text-two">+234 (0)803 810 8789</div>
+            </div>
+            <div class="email details">
+                <i class="fa fa-envelope"></i>
+                <div class="topic">Email</div>
+                <div class="text-one">richardolusanya9@gmail.com</div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="topic-text">Send us a message</div>
+                <p>If ur papa no get money go bomb do celeb no datingno hookup</p>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <div class="input-box">
+                    <input type="text" placeholder="Enter your Name" name="name">
+                </div>
+                <input type="hidden" name="access_key" value="24cbb702-8fd0-4c77-a7b9-cbc1d92f40a7">
+                <div class="input-box">
+                    <input type="email" placeholder="Enter your Email" name="email">
+                </div>
+                <div class="input-box message-box">
+                    <textarea placeholder="Your Message" name="message"></textarea>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Send Now">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-logo">
+        <a href="https://www.facebook.com/profile.php?id=100066703774407"><i class='bx bxl-facebook'></i></a>
+        <a href="#"><i class='bx bxl-tiktok'></i></a>
+        <a href="https://www.instagram.com/contrive_media/"><i class='bx bxl-instagram'></i></a>
+    </div>
+</div>
+        </div>
+
+        <!-- <section class="footer">
+    <h4>About Us</h4>
+    <p>we film events and launches, capturing the excitement of a moment in time. We design and create stunning animation and product videos that inspire and inform, delivering audience interaction and engagement.<br> And, of course, we devise, script and film advertising and promotional videos that drive sales and communicate brand.</p> 
+    <div class="fcons">
+         <i class="fa fa-facebook"></i>
+         <i class="fa fa-twitter"></i>
+         <i class="fa fa-instagram"></i>
+         <i class="fa fa-linkedin"></i>
+    </div>
+    <p>Made By <i class="fa fa-heart-o"></i> Richie </p>
+</section> -->
+
+	
+
+<script>
+    var links = document.getElementById("links");
+
+    function showMenu(){
+        links.style.right = "0";
+    }
+
+    function hideMenu(){
+        links.style.right = "-200px";
+    }
+</script>
+	 	
+
+
+</body>
+</html>
